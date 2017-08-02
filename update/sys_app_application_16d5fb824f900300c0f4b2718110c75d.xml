@@ -6,27 +6,27 @@
         <description/>
         <device_type>browser</device_type>
         <hint/>
-        <name>Slack efw</name>
+        <name>Slack Users</name>
         <order>100</order>
-        <roles>x_144865_slack_int.slack_events_user</roles>
+        <roles>x_144865_slack_int.slack_users_user</roles>
         <sys_class_name>sys_app_application</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2017-08-02 10:39:07</sys_created_on>
+        <sys_created_on>2017-08-02 11:31:31</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>36d9678a4f500300c0f4b2718110c7d7</sys_id>
-        <sys_mod_count>3</sys_mod_count>
-        <sys_name>Slack Integration</sys_name>
+        <sys_id>16d5fb824f900300c0f4b2718110c75d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Slack Users</sys_name>
         <sys_overrides/>
         <sys_package display_value="Slack integration" source="x_144865_slack_int">f90d578e4f100300c0f4b2718110c7f8</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Slack integration">f90d578e4f100300c0f4b2718110c7f8</sys_scope>
-        <sys_update_name>sys_app_application_36d9678a4f500300c0f4b2718110c7d7</sys_update_name>
+        <sys_update_name>sys_app_application_16d5fb824f900300c0f4b2718110c75d</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2017-08-02 11:22:06</sys_updated_on>
-        <title>Slack Integration</title>
+        <sys_updated_on>2017-08-02 11:31:31</sys_updated_on>
+        <title>Slack Users</title>
         <view_name/>
     </sys_app_application>
 </record_update>

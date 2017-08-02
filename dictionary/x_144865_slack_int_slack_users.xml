@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Slack Users" max_length="40" name="x_144865_slack_int_slack_users" type="collection">
+        <element label="SlackName" max_length="200" name="slackname" type="string"/>
+        <element label="SNowID" max_length="32" name="snowid" reference="sys_user" type="reference"/>
+        <element label="UserID" max_length="200" name="userid" type="string"/>
+        <index name="index">
+            <element name="snowid"/>
+        </index>
+    </element>
+</database>
