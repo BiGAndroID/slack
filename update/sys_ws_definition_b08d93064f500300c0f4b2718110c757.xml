@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ws_definition">
+    <sys_ws_definition action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <base_uri>/api/x_144865_slack_int/handle_slack</base_uri>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_version>No active default version</default_version>
+        <doc_link/>
+        <enforce_acl/>
+        <is_versioned>false</is_versioned>
+        <name>Handle Slack</name>
+        <namespace>x_144865_slack_int</namespace>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <service_id>handle_slack</service_id>
+        <short_description/>
+        <sys_class_name>sys_ws_definition</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-08-02 09:45:45</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>b08d93064f500300c0f4b2718110c757</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Handle Slack</sys_name>
+        <sys_package display_value="Slack integration" source="x_144865_slack_int">f90d578e4f100300c0f4b2718110c7f8</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Slack integration">f90d578e4f100300c0f4b2718110c7f8</sys_scope>
+        <sys_update_name>sys_ws_definition_b08d93064f500300c0f4b2718110c757</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-08-02 09:47:05</sys_updated_on>
+    </sys_ws_definition>
+</record_update>
