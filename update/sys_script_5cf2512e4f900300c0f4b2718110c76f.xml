@@ -16,13 +16,13 @@
         <condition/>
         <description/>
         <execute_function>false</execute_function>
-        <filter_condition table="x_144865_slack_int_slack_events">type=1^EQ<item endquery="false" field="type" goto="false" newquery="false" operator="=" or="false" value="1"/>
+        <filter_condition table="x_144865_slack_int_slack_events">type=3^EQ<item endquery="false" field="type" goto="false" newquery="false" operator="=" or="false" value="3"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </filter_condition>
         <is_rest>false</is_rest>
         <message/>
-        <name>Create story</name>
-        <order>200</order>
+        <name>Cancel Story</name>
+        <order>100</order>
         <priority>100</priority>
         <rest_method/>
         <rest_method_text/>
@@ -31,56 +31,63 @@
         <rest_variables/>
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
-	var story = new GlideRecord('rm_story');
-	
+
 	var payload = JSON.parse(current.payload);
-	
-	story.initialize();
-	story.short_description = payload.event.text;
-	story.insert();
-	
-	var rm = new sn_ws.RESTMessageV2();
+	var story = new GlideRecord('rm_story');
+	var rm = new sn_ws.RESTMessageV2();	
 	rm.setHttpMethod('POST');
-	
 	rm.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 	rm.setEndpoint('https://slack.com/api/chat.postMessage');
-	//rm.setEndpoint('https://slack.com/api/auth.test');
 	var token = 'xoxb-220343920368-ruSodmu4xeTF7hJq6w06w8gN';
 	var body = '';
-	body += 'token='+gs.urlEncode(token.toString());
-	//body += '&channel='+gs.base64Encode('request.body.data.event.channel');
+    body += 'token='+gs.urlEncode(token.toString());
 	body += '&channel='+gs.urlEncode('C08DU8G6A');
-	body += '&text='+gs.urlEncode("Story "+story.getValue('number').toString()+ " added.\n Link: https://dev29235.service-now.com/nav_to.do?uri=rm_story.do?sys_id="+story.getValue('sys_id'));
+	
+	var matches = payload.event.text.match(/STRY[^ ]+/g);
+	if (matches){
+		story.addQuery('number',matches[0]);
+		story.query();
+
+		if (story.next()){
+			story.setValue('state',4);
+			story.update();
+			body += '&text='+gs.urlEncode("Cancelled "+story.getValue('number').toString()+".\nLink: https://dev29235.service-now.com/nav_to.do?uri=rm_story.do?sys_id="+story.getValue('sys_id'));
+		}
+		else
+			body += '&text='+gs.urlEncode("Cannot find this story "+matches[0].toString()+' :cry:');
+	}
+	else{
+		body += '&text='+gs.urlEncode("Wrong story format. Correct one is  STRYxxxxxxx "+' :glitch_crab:');
+	}
 	
 	rm.setRequestBody(body);
 	var resp = rm.execute();
-	gs.info(rm.getRequestHeader());
-	gs.info("status "+resp.getStatusCode()+" body "+resp.getBody()+rm.getRequestBody());
-	
-	
-	//story.addActiveQuery()
+	if(resp.getStatusCode() != 200){
+		resp = rm.executeAsync();
+	}
+
 	// Add your code here
 
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2017-08-02 13:25:18</sys_created_on>
+        <sys_created_on>2017-08-03 13:03:02</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>6f4fc0924fd00300c0f4b2718110c784</sys_id>
-        <sys_mod_count>19</sys_mod_count>
-        <sys_name>Create story</sys_name>
+        <sys_id>5cf2512e4f900300c0f4b2718110c76f</sys_id>
+        <sys_mod_count>34</sys_mod_count>
+        <sys_name>Cancel Story</sys_name>
         <sys_overrides/>
         <sys_package display_value="Slack integration" source="x_144865_slack_int">f90d578e4f100300c0f4b2718110c7f8</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Slack integration">f90d578e4f100300c0f4b2718110c7f8</sys_scope>
-        <sys_update_name>sys_script_6f4fc0924fd00300c0f4b2718110c784</sys_update_name>
+        <sys_update_name>sys_script_5cf2512e4f900300c0f4b2718110c76f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2017-08-03 15:15:29</sys_updated_on>
+        <sys_updated_on>2017-08-03 15:21:54</sys_updated_on>
         <template/>
         <when>after</when>
     </sys_script>
-    <sys_translated_text action="delete_multiple" query="documentkey=6f4fc0924fd00300c0f4b2718110c784"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=5cf2512e4f900300c0f4b2718110c76f"/>
 </record_update>
