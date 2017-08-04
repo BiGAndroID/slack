@@ -45,7 +45,7 @@
 	rm.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 	rm.setEndpoint('https://slack.com/api/chat.postMessage');
 	//rm.setEndpoint('https://slack.com/api/auth.test');
-	var token = 'xoxb-220343920368-ruSodmu4xeTF7hJq6w06w8gN';
+	var token = 'xoxb-220343920368-X3aK3GNPklDWbuo1ySljY1r8';
 	var body = '';
 	body += 'token='+gs.urlEncode(token.toString());
 	//body += '&channel='+gs.base64Encode('request.body.data.event.channel');
@@ -54,8 +54,8 @@
 	
 	rm.setRequestBody(body);
 	var resp = rm.execute();
-	gs.info(rm.getRequestHeader());
-	gs.info("status "+resp.getStatusCode()+" body "+resp.getBody()+rm.getRequestBody());
+	//gs.info(rm.getRequestHeader());
+	//gs.info("status "+resp.getStatusCode()+" body "+resp.getBody()+rm.getRequestBody());
 	
 	
 	//story.addActiveQuery()
@@ -69,7 +69,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>6f4fc0924fd00300c0f4b2718110c784</sys_id>
-        <sys_mod_count>19</sys_mod_count>
+        <sys_mod_count>21</sys_mod_count>
         <sys_name>Create story</sys_name>
         <sys_overrides/>
         <sys_package display_value="Slack integration" source="x_144865_slack_int">f90d578e4f100300c0f4b2718110c7f8</sys_package>
@@ -78,7 +78,7 @@
         <sys_scope display_value="Slack integration">f90d578e4f100300c0f4b2718110c7f8</sys_scope>
         <sys_update_name>sys_script_6f4fc0924fd00300c0f4b2718110c784</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2017-08-03 15:15:29</sys_updated_on>
+        <sys_updated_on>2017-08-04 08:11:15</sys_updated_on>
         <template/>
         <when>after</when>
     </sys_script>

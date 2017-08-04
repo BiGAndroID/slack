@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml,*/*</consumes>
+        <consumes_customized>true</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl/>
+        <http_method>POST</http_method>
+        <name>Create Slack Story</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+	gs.info("Received : "+request.body.data.text);
+//	gs.info("Received body: "+request.body.dataString);
+//	if (request.body.data.challenge){
+//		response.setStatus(200);
+//		response.setContentType('text/plain');
+//		//response.setBody()
+//		response.getStreamWriter().writeString(request.body.data.challenge);
+//	}
+    // implement resource here
+//	else{
+		response.setStatus(200);
+//		gs.info("Received: "+JSON.stringify(request.body.data));
+//	}
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_144865_slack_int/slack_new_story</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/</relative_path>
+        <request_example/>
+        <requires_acl_authorization>false</requires_acl_authorization>
+        <requires_authentication>false</requires_authentication>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-08-04 08:26:36</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>079e99ba4f100300c0f4b2718110c77d</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>Create Slack Story</sys_name>
+        <sys_package display_value="Slack integration" source="x_144865_slack_int">f90d578e4f100300c0f4b2718110c7f8</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Slack integration">f90d578e4f100300c0f4b2718110c7f8</sys_scope>
+        <sys_update_name>sys_ws_operation_079e99ba4f100300c0f4b2718110c77d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-08-04 11:05:08</sys_updated_on>
+        <web_service_definition display_value="Slack New Story">e51e517e4f100300c0f4b2718110c7f3</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>
